@@ -1,0 +1,43 @@
+skinparam classAttributeIconSize 0
+
+class Bungalow{
+
+}
+
+class Client{
+
+}
+
+class Reservation{
+
+}
+
+class TypeBungalow{
+
+}
+
+class Periode{
+-dDebut
+-dFin
+}
+
+class Semaine{
+
+}
+
+class Dispo{
+
+}
+
+class Tarif{
+
+}
+
+
+Client"1" -- "0..*"Reservation: "passer"
+Reservation"0..1" -- "1..1"Bungalow : "monBungalow"
+Bungalow"0..*" --o "1"TypeBungalow
+TypeBungalow"0..*" -- "0..*"Periode
+Semaine"*" -- "*"Bungalow
+(Semaine,Bungalow) .. Dispo
+(TypeBungalow, Periode) .. Tarif
