@@ -1,0 +1,30 @@
+skinparam classAttributeIconSize 0
+
+class ligne_ferroviaire{
+
+}
+
+class gare{
+- nom: string
+}
+
+class train{
++ utilser()
++SetOrigine(o:Gare)
++SetArrivee(a:Gare)
+}
+
+class capteur{
+
+}
+
+class barrière{
+-estOuverte: bool
+}
+
+gare "2..*" -- "1..*"ligne_ferroviaire : "estTraverserPar"
+train ..> ligne_ferroviaire : "utilser"
+train --> "gareOrigine"gare
+train --> "gareArrivée"gare
+capteur <-- ligne_ferroviaire :
+barrière"maBarrière" -- "monCapteur"capteur : "Controler"
